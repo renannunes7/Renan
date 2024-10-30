@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Minha Namorada</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Para Você, Meu Amor ❤️</h1>
+    <p>Você é a razão dos meus melhores sorrisos.</p>
+    <button id="playPauseButton">Tocar Música 🎶</button>
+    <!-- Seção de escolha de cartas -->
+    <h2>Escolha uma Carta</h2>
+    <div class="cards-container">
+      <div class="card" data-text="Essa foto é da noite na festa de aniversário onde a gente se beijou pela primeira vez, foi simplesmente incrível. Estava tudo tão animado, lembro como se fosse hoje quando eu vi você chegar com sua beleza exuberante, meu coração chegou acelerar, cada vez que eu olhava para você, meu coração batia mais rápido, e eu sentia que seria você a dona do meu coração. Quando finalmente nossos olhares se encontraram, tudo ao meu redor desapareceu, parecia q só tinha eu e você naquele momento, o tempo parou pra mim, depois saímos, parecia que não ia dar certo aquele dia, eu muito tímido e você também, mas estava no propósito de Deus a gente se beijar aquele dia e iniciar a nossa história de amor. Naquele instante, q te beijei percebi que o amor tinha ganhado morada em mim, era como se eu tivesse encontrado uma peça que faltava no meu quebra-cabeça. Desde aquele beijo, tudo mudou. Cada dia com você se tornou uma nova aventura, e eu não consigo parar de sorrir só de lembrar daquela noite mágica. Foi ali que tudo começou, e eu sou tão grato por isso! 04/12/2021">
+        <div class="card-inner">
+          <div class="card-front">1</div>
+          <div class="card-back">
+            <img src="foto1.jpg" alt="Foto de Amor 1">
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-text="Aqui dps de anos, tiramos uma foto novamente após voltarmos a ficar dps de anos separados, foi tão dificil ficar sem voce, sempre te amando e sabendo que você não era minha era tão dificil n ter voce, ainda bem que você voltou hahaha. Você sempre foi dona do meu coração meu amor, sempre amei vc e obrigado por ter voltado à minha vida!!!! Dez/2023">
+        <div class="card-inner">
+          <div class="card-front">2</div>
+          <div class="card-back">
+            <img src="foto2.jpeg" alt="Foto de Amor 2">
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-text="Aqui voltei para sua vida após partir dela, foi dificil mas necessário para colocar as coisas no lugar e ver que realmente você sempre foi e será dona do meu coração e que nada iria mudar isso, eu amo muito você Driy, obrigado por ter me aceitado, eu nunca vou esquecer de vc vida.">
+        <div class="card-inner">
+          <div class="card-front">3</div>
+          <div class="card-back">
+            <img src="foto3.jpeg" alt="Foto de Amor 3">
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-text="Aqui estávamos junto e ficando mais forte juntos do que nunca, e nosso amor só se fortalecia e você só aguardando o pedido de namoro...">
+        <div class="card-inner">
+          <div class="card-front">4</div>
+          <div class="card-back">
+            <img src="foto4.jpeg" alt="Foto de Amor 4">
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-text="Aqui finalmente o pedido saiu, e com buquê!!! Eu amo muito você, obrigado por ser a melhor namorada do mundo e me fazer muito feliz e tirar sorrisos de mim quando mais ninguém consegue, vc é realmente incrivel e merece o mundo, farei de tudo para te dar do bom e melhor e que vc nunca precisa passar por nada de ruim pois estarei aqui pra sempre te protejar, afinal você é minha joia, que Deus me deu para ser cuidada com muito amor e carinho, e espero que você me aguarde até o dia da gente casar, que será um dia incrivel e feliz, a gente vai ter nossa casinha ainda meu amor, só tenha paciência, nossa hora vai chegar, eu prometo!!!!">
+        <div class="card-inner">
+          <div class="card-front">5</div>
+          <div class="card-back">
+            <img src="foto5.jpeg" alt="Foto de Amor 5">
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-text="Nós atualmente, amo muito você , e espero passar anos e anos do seu lado, obrigado tudo por meu amor!!!!!!!">
+        <div class="card-inner">
+          <div class="card-front">6</div>
+          <div class="card-back">
+            <img src="foto6.jpeg" alt="Foto de Amor 6">
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="backgroundMusic" src="seu_arquivo_de_musica.mp3" preload="auto" loop></audio>
+
+  <script>
+    // JavaScript para controlar o áudio
+    const playPauseButton = document.getElementById("playPauseButton");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+
+    playPauseButton.addEventListener("click", () => {
+      if (backgroundMusic.paused) {
+        backgroundMusic.play().then(() => {
+          playPauseButton.textContent = "Pausar Música ⏸️";
+        }).catch((error) => {
+          console.log("Erro ao reproduzir o áudio. Tente clicar novamente.");
+        });
+      } else {
+        backgroundMusic.pause();
+        playPauseButton.textContent = "Tocar Música 🎶";
+      }
+    });
+
+    // Controle das cartas
+    // Controle das cartas
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    const cardInner = card.querySelector('.card-inner');
+    const cardText = card.dataset.text;
+    const expandedView = document.createElement('div');
+    expandedView.classList.add('expanded-view');
+
+    // Cria o elemento de imagem expandida
+    const expandedImage = document.createElement('img');
+    expandedImage.id = 'expandedImage';
+    expandedImage.src = card.querySelector('img').src;
+
+    // Cria o elemento de texto expandido
+    const expandedText = document.createElement('div');
+    expandedText.id = 'expandedText';
+    expandedText.textContent = cardText;
+
+    // Cria o botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Fechar';
+    closeButton.style.marginTop = '20px';
+    closeButton.addEventListener('click', () => {
+      expandedView.remove(); // Remove a visualização expandida
+    });
+
+    // Monta a visualização expandida
+    expandedView.appendChild(expandedImage);
+    expandedView.appendChild(expandedText);
+    expandedView.appendChild(closeButton);
+    
+    document.body.appendChild(expandedView); // Adiciona a visualização ao corpo
+    expandedView.style.display = 'flex'; // Exibe a visualização expandida
+  });
+});
+
+
+  </script>
+</body>
+</html>
